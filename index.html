@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imperial County DA • Case Dashboard</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- libs (same CDNs, SheetJS kept for XLSX) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alasql/dist/alasql.min.js"></script>
+
+  <!-- dashboard logic -->
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>Imperial County DA</h1>
+      <p>Case Status & Processing Times</p>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- side panel -->
+    <aside class="sidebar">
+      <h2>Filters</h2>
+
+      <label>Measure
+        <select id="metric">
+          <option value="all_cases">All cases received</option>
+          <optgroup label="Case status">
+            <option value="Filed">Filed</option>
+            <option value="Dismissed">Dismissed</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Open">Open</option>
+            <option value="Sentenced">Sentenced</option>
+          </optgroup>
+        </select>
+      </label>
+
+      <label>Time range
+        <select id="range">
+          <option value="last12">Last 12 months</option>
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="annual">Annual</option>
+        </select>
+      </label>
+
+      <label>Group by
+        <select id="dimension"></select>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" id="pieToggle" checked />
+        Use pie-chart mode
+      </label>
+    </aside>
+
+    <!-- main dashboard -->
+    <main class="dashboard">
+
+      <!-- compare area (hidden until used) -->
+      <div id="compareSection" style="display:none;margin-top:40px;">
+        <h2 style="text-align:center;">Comparison chart</h2>
+        <div class="large-chart-container">
+          <canvas id="largeChart" height="150"></canvas>
+        </div>
+      </div>
+
+      <section id="chartGrid" class="chart-grid"></section>
+    </main>
+  </div>
+</body>
+</html>

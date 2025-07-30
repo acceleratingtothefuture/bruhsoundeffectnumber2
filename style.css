@@ -1,0 +1,161 @@
+/* RESET + BASE */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  color: #222;
+}
+select, input[type="checkbox"] {
+  font-family: inherit;
+}
+
+/* HEADER */
+.site-header {
+  background: linear-gradient(90deg, #2c3e50, #34495e);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+.site-header p {
+  margin: 8px 0 0;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 100px);
+}
+.sidebar {
+  background: #fff;
+  padding: 24px;
+  width: 260px;
+  border-right: 1px solid #ddd;
+}
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #444;
+}
+.sidebar label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+.sidebar select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  margin-top: 12px;
+}
+
+/* DASHBOARD */
+.dashboard {
+  flex: 1;
+  padding: 32px;
+}
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.chart-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  transition: all 0.3s;
+}
+.chart-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.chart-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.chart-month {
+  font-weight: 600;
+  color: #666;
+}
+.chart-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.range-labels {
+  font-size: 0.75rem;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+}
+.compare {
+  margin-bottom: 40px;
+}
+#compareSection {
+  width: 100%;
+  background: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+#largeChart {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  width: 100%;
+}
+
+#sliceValue {
+  height: 1.2em;        /* or whatever height fits your font size */
+  min-width: 120px;     /* optional: prevent shrinking */
+  white-space: nowrap;  /* keep text in one line */
+  overflow: hidden;     /* avoid overflow if text is longer */
+  transition: color 0.3s ease; /* keep smooth color changes */
+}
+
+
+#compareSection {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.large-chart-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#compareSection {
+  display: block;
+  padding: 20px;
+  background: white; /* or something visible */
+}
+
+#compareSection canvas {
+  width: 100% !important;
+  height: auto !important;
+}
